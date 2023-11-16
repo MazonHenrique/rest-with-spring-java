@@ -27,14 +27,34 @@ public class Person implements Serializable{
 	private String lastName;
 	
 	@Column(nullable = false, length = 100)
-	private String adrees;
+	private String address;
 	
 	@Column(nullable = false, length = 6)
 	private String gender;
 	
+    @Column(nullable = false, length = 100)
+    private String email;
+    
 	public Person() {
 	}
 
+    public Person(String firstName, String lastName, String email, String address, String gender) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.gender = gender;
+        this.email = email;
+    }
+
+    public Person(Long id, String firstName, String lastName, String email, String address, String gender) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.gender = gender;
+        this.email = email;
+    }
+    
 	public Long getId() {
 		return id;
 	}
@@ -59,12 +79,12 @@ public class Person implements Serializable{
 		this.lastName = lastName;
 	}
 
-	public String getAdrees() {
-		return adrees;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAdrees(String adrees) {
-		this.adrees = adrees;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getGender() {
@@ -78,7 +98,7 @@ public class Person implements Serializable{
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(adrees, firstName, gender, id, lastName);
+		return Objects.hash(address, firstName, gender, id, lastName);
 	}
 
 	@Override
@@ -90,7 +110,7 @@ public class Person implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Person other = (Person) obj;
-		return Objects.equals(adrees, other.adrees) && Objects.equals(firstName, other.firstName)
+		return Objects.equals(address, other.address) && Objects.equals(firstName, other.firstName)
 				&& Objects.equals(gender, other.gender) && Objects.equals(id, other.id)
 				&& Objects.equals(lastName, other.lastName);
 	}

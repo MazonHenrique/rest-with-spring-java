@@ -32,7 +32,7 @@ public class PersonServices {
 
 		entity.setFirstName(person.getFirstName());
 		entity.setLastName(person.getLastName());
-		entity.setAdrees(person.getAdrees());
+		entity.setAddress(person.getAddress());
 		entity.setGender(person.getGender());
 
 		return personRepository.save(entity);
