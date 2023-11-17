@@ -91,14 +91,21 @@ public class Person implements Serializable{
 		return gender;
 	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-
-
+	
 	@Override
 	public int hashCode() {
-		return Objects.hash(address, firstName, gender, id, lastName);
+		return Objects.hash(address, firstName, gender, id, lastName, email);
 	}
 
 	@Override
@@ -112,7 +119,8 @@ public class Person implements Serializable{
 		Person other = (Person) obj;
 		return Objects.equals(address, other.address) && Objects.equals(firstName, other.firstName)
 				&& Objects.equals(gender, other.gender) && Objects.equals(id, other.id)
-				&& Objects.equals(lastName, other.lastName);
+				&& Objects.equals(lastName, other.lastName)
+				&& Objects.equals(email, other.email);
 	}
 	
 	
